@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import './App.css'
 
@@ -41,21 +40,25 @@ function App() {
   })
 
   return (
-    <div>
-      <input type="text" placeholder='task' value={input} onChange={e => setInput(e.target.value)} />
+    <div className='flex flex-col items-center box-border mt-8 bg-purple-100 w-120 m-auto rounded-xl shadow-md'>
+      <h1 className=''>To-do List</h1>
+      <div className='flex gap-2 mt-5'>
+        <input className='bg-blue-100 rounded-xl relative overflow-hidden' type="text" placeholder='task' value={input} onChange={e => setInput(e.target.value)} />
+        <button className='bg-green-400 rounded-xl ' onClick={adicionar}>adicionar</button>
+        
+        <button className='bg-blue-500 rounded-xl' onClick={() => setFilter("all")}>todas</button>
+        <button className='bg-blue-500 rounded-xl' onClick={() => setFilter("done")}>cocluidas</button>
+        <button className='bg-blue-500 rounded-xl' onClick={() => setFilter("pending")}>pendentes</button>
+      </div>
 
-      <button onClick={adicionar}>adicionar</button>
-      <button onClick={() => setFilter("all")}>todas</button>
-      <button onClick={() => setFilter("done")}>cocluidas</button>
-      <button onClick={() => setFilter("pending")}>pendentes</button>
 
       {filterTask.map((lista, idx) => (
         <ul key={idx}>
           <li onClick={() => toggle(idx)} className={lista.done ? "riscado" : ""}>{lista.text}</li>
-          <button onClick={() => remover(idx)}>remove</button>
+          <button className='bg-red-400 rounded-xl' onClick={() => remover(idx)}>remove</button>
         </ul>
       ))}
-      <p>tot tasks: {list.length}</p>
+      <p className='mt-5'>tot tasks: {list.length}</p>
     </div>
   )
 }
