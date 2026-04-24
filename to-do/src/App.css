@@ -1,9 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
-.riscado{
+body {
+    background: url('image/paisagem2.jpg') repeat-x top;
+    background-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.div-geral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-opcoes {
+    display: flex;
+    box-shadow: 0px 0px 8px #0000003a;
+    border-radius: 8px;
+    padding: 12px;
+    width: 500px;
+    height: 200px;
+    gap: 10px;
+}
+
+input {
+    width: 250px;
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+}
+
+.add-div {
+    position: relative;
+}
+
+.add-div>button {
+    position: absolute;
+    right: 0;
+    padding: 6px;
+}
+
+input:focus {
+    outline: none;
+    border-color: blue;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #00000057;
+    color: #fff;
+}
+
+.buttons {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+ul {
+    display: flex;
+    gap: 8px;
+}
+
+ul li {
+
+    list-style: none;
+}
+
+/* ----- */
+.riscado {
     text-decoration: line-through;
 }
-li{
+
+li {
     cursor: pointer;
 }
 
-    
+/* ------- */
