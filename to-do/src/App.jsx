@@ -43,25 +43,26 @@ function App() {
     <div className='div-geral'>
       <h1>To-do List</h1>
       <div className='container-opcoes'>
-        <div className='add-div'>
-          <input type="text" placeholder='task' value={input} onChange={e => setInput(e.target.value)} />
-          <button onClick={adicionar}>adicionar</button>
+        <div className='opcoes'>
+          <div className='add-div'>
+            <input type="text" placeholder='task' value={input} onChange={e => setInput(e.target.value)} />
+            <button onClick={adicionar}>adicionar</button>
+          </div>
+          <div className='buttons'>
+            <button onClick={() => setFilter("all")}>todas</button>
+            <button onClick={() => setFilter("done")}>cocluidas</button>
+            <button onClick={() => setFilter("pending")}>pendentes</button>
+          </div>
         </div>
-
-        <div className='buttons'>
-          <button onClick={() => setFilter("all")}>todas</button>
-          <button onClick={() => setFilter("done")}>cocluidas</button>
-          <button onClick={() => setFilter("pending")}>pendentes</button>
+        <div className='logica'>
+          {filterTask.map((lista, idx) => (
+            <ul key={idx}>
+              <li onClick={() => toggle(idx)} className={lista.done ? "riscado" : ""}>{lista.text}</li>
+              <button onClick={() => remover(idx)}>remove</button>
+            </ul>
+          ))}
         </div>
-        {filterTask.map((lista, idx) => (
-          <ul key={idx}>
-            <li onClick={() => toggle(idx)} className={lista.done ? "riscado" : ""}>{lista.text}</li>
-            <button onClick={() => remover(idx)}>remove</button>
-          </ul> 
-        ))}
       </div>
-    
-
       <p >tot tasks: {list.length}</p>
     </div>
   )
